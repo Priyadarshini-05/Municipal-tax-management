@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/yourusername/yourrepo.git'
+                git 'https://github.com/Priyadarshini-05/Municipal-tax-management.git'
             }
         }
 
