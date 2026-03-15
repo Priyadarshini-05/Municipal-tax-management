@@ -14,18 +14,27 @@ const sendSMS = async (phone, message) => {
         console.log(`   Message: ${message}`);
         console.log(`   Length: ${message.length} characters`);
 
-        // FORCE REAL SMS - Remove simulation check
-        console.log('🚀 FORCING REAL SMS via Fast2SMS...');
-        
-        if (!process.env.FAST2SMS_API_KEY) {
-            throw new Error('FAST2SMS_API_KEY is missing in environment variables');
+        const apiKey = process.env.FAST2SMS_API_KEY;
+
+        if (!apiKey) {
+            console.warn('⚠️ FAST2SMS_API_KEY missing. Simulating SMS send (development mode).');
+            console.log(`📬 Simulated SMS to +91 ${cleanedPhone}: ${message}`);
+            return {
+                success: true,
+                provider: 'simulation',
+                realSMS: false,
+                delivered: true,
+                message: 'Simulated SMS send (no API key)'
+            };
         }
+
+        console.log('🚀 Sending REAL SMS via Fast2SMS...');
 
         console.log(`🔑 API Key: ${process.env.FAST2SMS_API_KEY.substring(0, 10)}...`);
         
         // Real SMS sending with Fast2SMS
         const response = await axios.post('https://www.fast2sms.com/dev/bulkV2', {
-            authorization: process.env.FAST2SMS_API_KEY,
+            authorization: apiKey,
             sender_id: 'FSTSMS',  // Change to 'TXTIND' for transactional SMS
             message: message,
             route: 'v3',

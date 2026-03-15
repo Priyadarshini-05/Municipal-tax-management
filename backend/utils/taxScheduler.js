@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const { sendSMS } = require('./smsService');
+const { sendSMS } = require('./twilioService');
 const penaltyCalculator = require('./penaltyCalculator');
 
 class TaxScheduler {

@@ -101,3 +101,4 @@ app.listen(PORT, () => {
     console.log(`🔍 Debug routes: http://localhost:${PORT}/api/debug-routes`);
     console.log(`📱 SMS test: http://localhost:${PORT}/api/test-sms`);
 });
+
