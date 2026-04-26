@@ -1,6 +1,6 @@
 .admin-dashboard {
     padding: 20px;
-    background-color: blue;
+    background-color: white;
     min-height: 100vh;
     font-family: Arial, sans-serif;
 }
@@ -370,13 +370,7 @@
     background: #5a6268;
 }
 
-.admin-dashboard {
-    padding: 20px;
-    background-color: blue;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    color: #2c3e50; /* Default dark text color */
-}
+
 
 /* Ensure all text in tables is visible */
 .users-table td {
@@ -457,11 +451,7 @@
 }
 
 /* Enhanced Admin Styles */
-.admin-dashboard {
-    padding: 20px;
-    background: blue;
-    min-height: 100vh;
-}
+
 
 .admin-filters {
     display: flex;
