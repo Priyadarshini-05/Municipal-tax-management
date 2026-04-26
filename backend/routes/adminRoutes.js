@@ -40,7 +40,8 @@ router.post('/users', auth, adminAuth, async (req, res) => {
             pin_code,
             home_type,
             tax_amount,
-            water_tax_amount
+            water_tax_amount,
+            ward_no
         } = req.body;
 
         // Check if phone number already has too many registrations (optional limit)
@@ -67,6 +68,7 @@ router.post('/users', auth, adminAuth, async (req, res) => {
             state,
             pin_code,
             home_type,
+            ward_no,
             password: defaultPassword,
             'tax_details.property_tax.amount': tax_amount || 0,
             'tax_details.water_tax.amount': water_tax_amount || 0
